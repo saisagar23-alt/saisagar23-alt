@@ -1,4 +1,3 @@
-
 <div align="center">  
 
   <!-- Custom Banner Idea -->
@@ -31,7 +30,16 @@
 ## 🧰 Tech Stack  
 
 <div align="center">  
-  <img src="https://skillicons.dev/icons?i=python,django,html,css,js,postgres,git,github,linux,vscode&perline=6" />  
+  <a href="#"><img src="https://skillicons.dev/icons?i=python" title="Python" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=django" title="Django" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=html" title="HTML5" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=css" title="CSS3" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=js" title="JavaScript" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=postgres" title="PostgreSQL" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=git" title="Git" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=github" title="GitHub" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=linux" title="Linux" width="60"/></a>
+  <a href="#"><img src="https://skillicons.dev/icons?i=vscode" title="VS Code" width="60"/></a>
   <br/>  
   <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" alt="Developer Working" width="50%" />  
 </div>  
@@ -102,3 +110,4 @@
 <div align="center">  
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer" />  
 </div>
+
