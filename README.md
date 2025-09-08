@@ -45,7 +45,7 @@
   <a href="#"><img src="https://skillicons.dev/icons?i=linux" title="Linux" width="60"/></a>
   <a href="#"><img src="https://skillicons.dev/icons?i=vscode" title="VS Code" width="60"/></a>
   <br/>  
-  <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" alt="Developer Working" width="50%" />  
+
 </div>  
 
 ---
@@ -73,21 +73,69 @@
 
 ## 🚀 Featured Projects  
 
+<style>
+.project-card img {
+  transition: transform 0.3s ease-in-out;
+}
+.project-card img:hover {
+  transform: scale(1.1);
+}
+</style>
+
 <div align="center">  
+<table>  
+<tr>  
 
-<a href="https://github.com/saisagar23-alt/netflix-clone">  
-  <img src="https://media.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif" width="280" alt="Netflix Clone"/>  
-</a>  
+<!-- Netflix Clone -->
+<td align="center" width="33%" class="project-card">
+  <a href="https://github.com/saisagar23-alt/netflix-clone">
+    <img src="https://media.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif" width="220" alt="Netflix Clone"/>
+  </a>  
+  <br/>
+  <strong>🎬 Netflix Clone</strong>  
+  <p>A Netflix-inspired web app where users can browse movies, watch trailers, and manage accounts with authentication.</p>  
+  <img src="https://img.icons8.com/color/48/react-native.png" width="35"/>  
+  <img src="https://img.icons8.com/fluency/48/firebase.png" width="35"/>  
+  <img src="https://img.icons8.com/external-flat-juicy-fish/60/external-api-coding-and-development-flat-flat-juicy-fish.png" width="35"/>  
+  <img src="https://img.icons8.com/color/48/css3.png" width="35"/>  
+</td>  
 
-<a href="https://github.com/saisagar23-alt/event-web-page">  
-  <img src="https://media.giphy.com/media/3oKIPwoeGErMmaI43C/giphy.gif" width="280" alt="Event Web Page"/>  
-</a>  
+<!-- Sagar Events -->
+<td align="center" width="33%" class="project-card">
+  <a href="https://github.com/saisagar23-alt/event-web-page">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0z7mxzZLGiRpXiLIWtI5lXoH5v775DaUYEQ&s" width="220" alt="Sagar Events"/>
+  </a>  
+  <br/>
+  <strong>🎉 Sagar Events</strong>  
+  <p>A responsive website to showcase event details, schedules, and speakers — perfect for conferences or meetups.</p>  
+  <img src="https://img.icons8.com/color/48/html-5.png" width="35"/>  
+  <img src="https://img.icons8.com/color/48/css3.png" width="35"/>  
+  <img src="https://img.icons8.com/color/48/javascript.png" width="35"/>  
+  <img src="https://img.icons8.com/color/48/bootstrap.png" width="35"/>  
+</td>  
 
-<a href="https://github.com/saisagar23-alt/ai-image-generator">  
-  <img src="https://media.giphy.com/media/XEDIHHp3i8bVoEdxd7/giphy.gif" width="280" alt="AI Image Generator"/>  
-</a>  
+<!-- AI Image Generator -->
+<td align="center" width="33%" class="project-card">
+  <a href="https://github.com/saisagar23-alt/ai-image-generator">
+    <img src="https://media.giphy.com/media/XEDIHHp3i8bVoEdxd7/giphy.gif" width="220" alt="AI Image Generator"/>
+  </a>  
+  <br/>
+  <strong>🤖 AI Image Generator</strong>  
+  <p>Full-stack AI project that lets users generate unique images from text prompts using AI models.</p>  
+  <img src="https://img.icons8.com/color/48/react-native.png" width="35"/>  
+  <img src="https://img.icons8.com/color/48/nodejs.png" width="35"/>  
+  <img src="https://img.icons8.com/fluency/48/express-js.png" width="35"/>  
+  <img src="https://img.icons8.com/color/48/mongodb.png" width="35"/>  
+  <img src="https://img.icons8.com/external-others-pike-picture/50/external-AI-artificial-intelligence-others-pike-picture.png" width="35"/>  
+</td>  
 
-</div>  
+</tr>  
+</table>  
+</div>
+
+
+
+
 
 ---
 
