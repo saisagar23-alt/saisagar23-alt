@@ -6,8 +6,12 @@
   <h3>🚀 Turning Ideas into Scalable Web Solutions</h3>  
 
   <p>  
-    <a href="mailto:saisagar200123@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?logo=gmail&style=for-the-badge" /></a>  
-    <a href="https://linkedin.com/in/sai-sagar-682a42238"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&style=for-the-badge" /></a>  
+    <a href="mailto:saisagar200123@gmail.com?subject=Collaboration%20Request&body=Hi%20Sai%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20regarding..." target="_blank">
+      <img src="https://img.shields.io/badge/Email-D14836?logo=gmail&style=for-the-badge" alt="Email Me"/>
+    </a>  
+    <a href="https://linkedin.com/in/sai-sagar-682a42238" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&style=for-the-badge" alt="LinkedIn"/>
+    </a>  
     <img src="https://komarev.com/ghpvc/?username=saisagar23-alt&style=for-the-badge&color=blue" />  
   </p>  
 </div>  
@@ -86,6 +90,7 @@
 </div>  
 
 ---
+
 ## 🎵 Now Playing  
 
 <div align="center">  
@@ -102,8 +107,12 @@
 ## 📬 Contact  
 
 <div id="contact" align="center">  
-  <a href="https://linkedin.com/in/sai-sagar-682a42238"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&style=for-the-badge"/></a>  
-  <a href="mailto:saisagar200123@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?logo=gmail&style=for-the-badge" /></a>  
+  <a href="https://linkedin.com/in/sai-sagar-682a42238" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&style=for-the-badge"/>
+  </a>  
+  <a href="mailto:saisagar200123@gmail.com?subject=Collaboration%20Request&body=Hi%20Sai%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20regarding..." target="_blank">
+    <img src="https://img.shields.io/badge/Email-D14836?logo=gmail&style=for-the-badge" alt="Email Me"/>
+  </a>  
 </div>  
 
 ---
@@ -120,5 +129,5 @@
 
   <br/>  
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer"/>  
-</div> 
+</div>  
 
