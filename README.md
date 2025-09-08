@@ -70,17 +70,7 @@
 </div>  
 
 ---
-
 ## 🚀 Featured Projects  
-
-<style>
-.project-card img {
-  transition: transform 0.3s ease-in-out;
-}
-.project-card img:hover {
-  transform: scale(1.1);
-}
-</style>
 
 <div align="center">  
 <table>  
@@ -89,7 +79,7 @@
 <!-- Netflix Clone -->
 <td align="center" width="33%" class="project-card">
   <a href="https://github.com/saisagar23-alt/netflix-clone">
-    <img src="https://media.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif" width="220" alt="Netflix Clone"/>
+    <img src="https://cdn.dribbble.com/userupload/34116929/file/original-26e501e97684a115bfff294b1f1d41b0.png" width="220" alt="Netflix Clone"/>
   </a>  
   <br/>
   <strong>🎬 Netflix Clone</strong>  
@@ -103,7 +93,7 @@
 <!-- Sagar Events -->
 <td align="center" width="33%" class="project-card">
   <a href="https://github.com/saisagar23-alt/event-web-page">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0z7mxzZLGiRpXiLIWtI5lXoH5v775DaUYEQ&s" width="220" alt="Sagar Events"/>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0z7mxzZLGiRpXiLIWtI5lXoH5v775DaUYEQ&s" width="120" alt="Sagar Events"/>
   </a>  
   <br/>
   <strong>🎉 Sagar Events</strong>  
@@ -115,9 +105,9 @@
 </td>  
 
 <!-- AI Image Generator -->
-<td align="center" width="33%" class="project-card">
+<td align="center" width="23%" class="project-card">
   <a href="https://github.com/saisagar23-alt/ai-image-generator">
-    <img src="https://media.giphy.com/media/XEDIHHp3i8bVoEdxd7/giphy.gif" width="220" alt="AI Image Generator"/>
+    <img src="https://media.giphy.com/media/XEDIHHp3i8bVoEdxd7/giphy.gif" width="120" alt="AI Image Generator"/>
   </a>  
   <br/>
   <strong>🤖 AI Image Generator</strong>  
@@ -132,6 +122,7 @@
 </tr>  
 </table>  
 </div>
+
 
 
 
