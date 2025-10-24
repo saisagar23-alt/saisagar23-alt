@@ -3,7 +3,7 @@
   <!-- Custom Banner Idea -->
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=220&section=header&text=Sai%20Sagar%20👨‍💻&fontSize=50&fontAlignY=35&animation=fadeIn&desc=Full-Stack%20Developer%20%7C%20AI%20Enthusiast&descAlignY=55&descAlign=50" alt="SAI SAGAR Banner"/>  
 
-  <h3>🚀 Turning Ideas into Scalable Web Solutions</h3>  
+  <h3>   Turning Ideas into Scalable Web Solutions</h3>  
 
   <p>  
     <a href="mailto:saisagar200123@gmail.com?subject=Collaboration%20Request&body=Hi%20Sai%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20regarding..." target="_blank">
@@ -18,7 +18,7 @@
 
 ---
 
-## 🔥 About Me  
+##  About Me  
 
 - 🌍 Full Stack Developer skilled in **Python, Django, and modern web frameworks**.  
 - ⚡ Building **scalable backends** & **interactive, responsive frontends**.  
@@ -70,7 +70,7 @@
 </div>  
 
 ---
-## 🚀 Featured Projects  
+##  Featured Projects  
 
 <div align="center">  
 <table>  
