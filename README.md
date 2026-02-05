@@ -44,9 +44,6 @@
 
 <br/><br/>
 
-<!-- ML / Data Libraries -->
-<img src="https://skillicons.dev/icons?i=numpy,pandas,sklearn&perline=3" height="55"/>
-
 </div>
 
 
@@ -123,25 +120,6 @@
 </tr>  
 </table>  
 </div>
-
-
-
-
-
-
----
-
-## 🎵 Now Playing  
-
-<div align="center">  
-  <a href="https://www.youtube.com/watch?v=4NRXx6U8ABQ" target="_blank">
-    <img src="https://img.youtube.com/vi/4NRXx6U8ABQ/maxresdefault.jpg" 
-         alt="The Weeknd - Blinding Lights" width="500" style="border-radius:15px;"/>  
-  </a>  
-  <br/>  
-  <sub>🎶 The Weeknd – Blinding Lights (Official Video)</sub>  
-</div>
-
 ---
 
 ## 📬 Contact  
@@ -165,7 +143,6 @@
     ___Thank You for Visiting My Profile ___
   </h2>  
 
-  <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" width="200" alt="Futuristic Glow" />  
 
   <br/>  
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer"/>  
