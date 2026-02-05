@@ -18,37 +18,53 @@
 
 ---
 
-##  About Me  
+## About Me  
 
-- 🌍 Full Stack Developer skilled in **Python, Django, and modern web frameworks**.  
-- ⚡ Building **scalable backends** & **interactive, responsive frontends**.  
-- 🤖 Exploring **AI/ML, Cloud Services, and Next-Gen Web Technologies**.  
-- 🎯 Goal: Deliver impactful **AI-powered web solutions**.  
+- 📊 **Data Analyst** skilled in **Python, SQL, Excel, and Data Visualization tools**.  
+- 📈 Turning **raw data into meaningful insights** through analysis, dashboards, and reports.  
+- 🤖 Exploring **Machine Learning, Predictive Analytics, and Data-Driven Decision Making**.  
+- 🎯 Goal: Drive **business impact** using **accurate, actionable data insights**.  
 
 <div align="center">  
-  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="Coding GIF" width="70%"/>  
+  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="Data Analysis GIF" width="70%"/>  
 </div>  
 
 ---
 
 ## 🧰 Tech Stack  
 
-<div align="center">  
-  <a href="#"><img src="https://skillicons.dev/icons?i=python" title="Python" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=django" title="Django" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=html" title="HTML5" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=css" title="CSS3" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=js" title="JavaScript" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=postgres" title="PostgreSQL" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=git" title="Git" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=github" title="GitHub" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=linux" title="Linux" width="60"/></a>
-  <a href="#"><img src="https://skillicons.dev/icons?i=vscode" title="VS Code" width="60"/></a>
-  <br/>  
+<div align="center">
 
-</div>  
+<!-- Core -->
+<img src="https://skillicons.dev/icons?i=python" width="60" title="Python"/>
+<img src="https://skillicons.dev/icons?i=mysql" width="60" title="MySQL"/>
+<img src="https://skillicons.dev/icons?i=postgres" width="60" title="PostgreSQL"/>
+<img src="https://skillicons.dev/icons?i=git" width="60" title="Git"/>
+<img src="https://skillicons.dev/icons?i=github" width="60" title="GitHub"/>
 
----
+<!-- Excel -->
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/microsoftexcel.svg"
+     width="60" title="Excel"/>
+
+<!-- Power BI -->
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/powerbi.svg"
+     width="60" title="Power BI"/>
+
+<!-- Tableau -->
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tableau.svg"
+     width="60" title="Tableau"/>
+
+<!-- Pandas -->
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/pandas.svg"
+     width="60" title="Pandas"/>
+
+<!-- NumPy -->
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/numpy.svg"
+     width="60" title="NumPy"/>
+
+</div>
+
+
 
 ## 📊 GitHub Stats  
 
