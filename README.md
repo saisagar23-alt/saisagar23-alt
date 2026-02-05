@@ -28,36 +28,24 @@
 
 ---
 
-## 🧰 Tech Stack  
+## 🧰 Tech Stack
 
 <div align="center">
 
-<!-- Core -->
-<img src="https://skillicons.dev/icons?i=python" width="60" title="Python"/>
-<img src="https://skillicons.dev/icons?i=mysql" width="60" title="MySQL"/>
-<img src="https://skillicons.dev/icons?i=postgres" width="60" title="PostgreSQL"/>
-<img src="https://skillicons.dev/icons?i=git" width="60" title="Git"/>
-<img src="https://skillicons.dev/icons?i=github" width="60" title="GitHub"/>
+<!-- Core Programming & Databases -->
+<img src="https://skillicons.dev/icons?i=python,mysql,postgres,git,github&perline=5" height="60"/>
 
-<!-- Excel -->
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/microsoftexcel.svg"
-     width="60" title="Excel"/>
+<br/><br/>
 
-<!-- Power BI -->
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/powerbi.svg"
-     width="60" title="Power BI"/>
+<!-- Data & BI Tools -->
+<img src="https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
+<img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black"/>
+<img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white"/>
 
-<!-- Tableau -->
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tableau.svg"
-     width="60" title="Tableau"/>
+<br/><br/>
 
-<!-- Pandas -->
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/pandas.svg"
-     width="60" title="Pandas"/>
-
-<!-- NumPy -->
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/numpy.svg"
-     width="60" title="NumPy"/>
+<!-- ML / Data Libraries -->
+<img src="https://skillicons.dev/icons?i=numpy,pandas,sklearn&perline=3" height="55"/>
 
 </div>
 
