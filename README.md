@@ -1,21 +1,18 @@
-<div align="center">  
+<div align="center">
 
-  <!-- Custom Banner Idea -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=220&section=header&text=Sai%20Sagar%20👨‍💻&fontSize=50&fontAlignY=35&animation=fadeIn&desc=Full-Stack%20Developer%20%7C%20AI%20Enthusiast&descAlignY=55&descAlign=50" alt="SAI SAGAR Banner"/>  
+<img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=gradient&text=Sai%20Sagar&fontSize=48&fontAlignY=40&desc=Data%20Analyst%20%7C%20Machine%20Learning%20Enthusiast&descAlignY=65"/>
 
-  <h3>   Turning Ideas into Scalable Web Solutions</h3>  
+### Turning Data into Meaningful Insights
 
-  <p>  
-    <a href="mailto:saisagar200123@gmail.com?subject=Collaboration%20Request&body=Hi%20Sai%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20regarding..." target="_blank">
-      <img src="https://img.shields.io/badge/Email-D14836?logo=gmail&style=for-the-badge" alt="Email Me"/>
-    </a>  
-    <a href="https://linkedin.com/in/sai-sagar-682a42238" target="_blank">
-      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&style=for-the-badge" alt="LinkedIn"/>
-    </a>  
-    <img src="https://komarev.com/ghpvc/?username=saisagar23-alt&style=for-the-badge&color=blue" />  
-  </p>  
-</div>  
+<a href="mailto:saisagar200123@gmail.com">
+  <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail"/>
+</a>
+<a href="https://linkedin.com/in/sai-sagar-682a42238">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin"/>
+</a>
+<img src="https://komarev.com/ghpvc/?username=saisagar23-alt&style=for-the-badge"/>
 
+</div>
 ---
 
 ## About Me  
