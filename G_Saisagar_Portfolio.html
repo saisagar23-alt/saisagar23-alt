@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G. Saisagar — Data Analyst & ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ─────────────── TOKENS ─────────────── */
+:root {
+  --ink:#0c0c0e; --paper:#f6f4f0; --white:#fff;
+  --red:#E23744; --red2:#c0202d; --red-ghost:rgba(226,55,68,.08);
+  --gold:#c9a84c; --slate:#2a2a30; --mist:#888898;
+  --line:rgba(12,12,14,.09);
+  --hh:'Syne',sans-serif; --hb:'DM Sans',sans-serif;
+  --sh:0 20px 60px rgba(12,12,14,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--hb);background:var(--paper);color:var(--ink);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:#fff}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px}
+
+/* ─────────────── NAV ─────────────── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:62px;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(246,244,240,.93);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-brand {
+  font-family:var(--hh);font-weight:800;font-size:17px;
+  display:flex;align-items:center;gap:9px;
+}
+.pulse {
+  width:8px;height:8px;border-radius:50%;background:var(--red);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:13px;font-weight:500}
+.nav-links a{color:var(--mist);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--red);transition:width .25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-hire{
+  padding:8px 22px;border-radius:24px;font-size:13px;font-weight:700;
+  background:var(--ink);color:var(--paper);border:2px solid var(--ink);
+  transition:all .22s;cursor:pointer;
+}
+.nav-hire:hover{background:var(--red);border-color:var(--red)}
+
+/* ─────────────── HERO ─────────────── */
+.hero {
+  min-height:100vh;padding:80px 48px 60px;
+  display:grid;grid-template-columns:1fr 440px;
+  gap:72px;align-items:center;
+  max-width:1300px;margin:0 auto;
+}
+/* left */
+.hero-eyebrow {
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--red-ghost);border:1px solid rgba(226,55,68,.2);
+  color:var(--red);font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:5px 14px;border-radius:20px;
+  margin-bottom:22px;
+}
+.hero-h1 {
+  font-family:var(--hh);font-weight:800;
+  font-size:clamp(50px,5.5vw,78px);
+  line-height:.97;letter-spacing:-3px;
+  margin-bottom:22px;
+}
+.hero-h1 .accent{color:var(--red)}
+.hero-sub {
+  font-size:16px;line-height:1.75;color:var(--mist);
+  max-width:480px;margin-bottom:32px;
+}
+.hero-meta {
+  display:flex;flex-direction:column;gap:8px;
+  margin-bottom:34px;font-size:13px;
+}
+.hm-row{display:flex;align-items:center;gap:8px;color:var(--mist)}
+.hm-row svg{flex-shrink:0;color:var(--red)}
+.hm-row strong{color:var(--ink);font-weight:600}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px}
+.htag{
+  padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;
+  border:1.5px solid var(--line);color:var(--slate);transition:all .2s;
+}
+.htag:hover{border-color:var(--red);color:var(--red);background:var(--red-ghost)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-red{
+  padding:13px 30px;border-radius:28px;font-size:14px;font-weight:700;
+  background:var(--red);color:#fff;border:2px solid var(--red);
+  transition:all .25s;display:flex;align-items:center;gap:8px;cursor:pointer;
+}
+.btn-red:hover{background:var(--red2);border-color:var(--red2);transform:translateY(-2px)}
+.btn-out{
+  padding:13px 30px;border-radius:28px;font-size:14px;font-weight:700;
+  background:transparent;color:var(--ink);border:2px solid var(--line);
+  transition:all .25s;display:flex;align-items:center;gap:8px;cursor:pointer;
+}
+.btn-out:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn-down{
+  padding:13px 30px;border-radius:28px;font-size:14px;font-weight:700;
+  background:var(--ink);color:var(--paper);border:2px solid var(--ink);
+  transition:all .25s;display:flex;align-items:center;gap:8px;cursor:pointer;
+}
+.btn-down:hover{background:var(--slate);transform:translateY(-2px)}
+
+/* ─── PHOTO COLUMN ─── */
+.photo-col{position:relative}
+.photo-frame{
+  width:100%;aspect-ratio:4/5;border-radius:28px;overflow:hidden;
+  position:relative;box-shadow:0 48px 96px rgba(12,12,14,.2);
+  background:var(--line);
+}
+.photo-frame img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  transition:transform .6s ease;display:block;
+}
+.photo-frame:hover img{transform:scale(1.04)}
+/* decorative frame border */
+.photo-frame::after{
+  content:'';position:absolute;inset:-1px;border-radius:28px;
+  border:2px solid rgba(226,55,68,.18);pointer-events:none;
+}
+/* Floating badge — CGPA */
+.fb1{
+  position:absolute;bottom:-18px;left:20px;
+  background:var(--white);border-radius:18px;padding:14px 20px;
+  box-shadow:0 12px 40px rgba(12,12,14,.14);
+  display:flex;align-items:center;gap:12px;
+  border:1px solid var(--line);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.fb1-icon{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--red),#f97316);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.fb1 .fv{font-family:var(--hh);font-weight:900;font-size:20px;line-height:1}
+.fb1 .fl{font-size:11px;color:var(--mist);margin-top:2px}
+/* Floating badge — Top Performer */
+.fb2{
+  position:absolute;top:22px;right:-18px;
+  background:var(--ink);border-radius:16px;padding:12px 18px;
+  box-shadow:0 12px 32px rgba(12,12,14,.3);
+  animation:float 4s ease-in-out infinite .7s;
+}
+.fb2-t{font-size:12px;font-weight:700;color:var(--paper);white-space:nowrap}
+.fb2-s{font-size:14px;color:#fbbf24;margin-top:3px;letter-spacing:2px}
+/* Availability badge */
+.fb3{
+  position:absolute;top:22px;left:-14px;
+  background:var(--white);border-radius:14px;padding:10px 16px;
+  box-shadow:0 8px 24px rgba(12,12,14,.1);
+  display:flex;align-items:center;gap:8px;
+  animation:float 4s ease-in-out infinite 1.4s;
+}
+.fb3-dot{
+  width:8px;height:8px;border-radius:50%;background:#1ec97e;
+  flex-shrink:0;box-shadow:0 0 0 3px rgba(30,201,126,.2);
+  animation:pulse 1.5s infinite;
+}
+.fb3 span{font-size:11px;font-weight:700;color:var(--ink);white-space:nowrap}
+
+/* ─────────────── DARK STATS BAND ─────────────── */
+.stats-band{
+  background:var(--ink);padding:52px 48px;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.sb-item{
+  text-align:center;padding:0 32px;
+  border-right:1px solid rgba(255,255,255,.07);
+}
+.sb-item:last-child{border:none}
+.sb-v{
+  font-family:var(--hh);font-weight:900;
+  font-size:clamp(42px,4vw,58px);color:var(--red);line-height:1;
+}
+.sb-l{font-size:12px;color:rgba(255,255,255,.4);margin-top:6px;font-weight:500}
+
+/* ─────────────── SECTION WRAPPER ─────────────── */
+.sec{max-width:1300px;margin:0 auto;padding:88px 48px}
+.sec-eye{
+  display:block;font-size:11px;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--red);margin-bottom:14px;
+}
+.sec-h{
+  font-family:var(--hh);font-weight:800;
+  font-size:clamp(32px,3.5vw,50px);
+  letter-spacing:-1.5px;line-height:1.06;
+  margin-bottom:50px;
+}
+.sec-h em{font-style:normal;color:var(--red)}
+hr.div{border:none;border-top:1px solid var(--line);margin:0 48px}
+
+/* ─────────────── PROFILE / RESUME SECTION ─────────────── */
+.profile-grid{
+  display:grid;grid-template-columns:1fr 380px;
+  gap:40px;align-items:start;
+}
+.profile-card{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:22px;padding:36px;
+}
+.pc-top{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+.pc-photo{
+  width:80px;height:80px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:3px solid var(--red);
+}
+.pc-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.pc-name{font-family:var(--hh);font-weight:800;font-size:22px}
+.pc-role{font-size:13px;color:var(--red);font-weight:600;margin-top:3px}
+.pc-loc{font-size:12px;color:var(--mist);margin-top:3px;display:flex;align-items:center;gap:4px}
+.pc-summary{
+  font-size:14px;line-height:1.8;color:var(--mist);
+  border-top:1px solid var(--line);padding-top:22px;margin-bottom:24px;
+}
+.pc-summary strong{color:var(--ink)}
+.pc-details{display:flex;flex-direction:column;gap:10px}
+.pc-row{display:flex;align-items:center;gap:10px;font-size:13px}
+.pc-icon{
+  width:34px;height:34px;border-radius:10px;
+  background:var(--red-ghost);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+}
+.pc-row a{color:var(--red);font-weight:600}
+.pc-row a:hover{text-decoration:underline}
+
+/* Resume Download Card */
+.resume-card{
+  background:linear-gradient(145deg,#0c0c0e,#1e1e26);
+  border-radius:22px;padding:32px;
+  border:1px solid rgba(255,255,255,.06);
+  position:relative;overflow:hidden;
+}
+.resume-card::before{
+  content:'';position:absolute;right:-60px;bottom:-60px;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(226,55,68,.15) 0%,transparent 65%);
+}
+.rc-icon{
+  width:60px;height:60px;border-radius:18px;
+  background:linear-gradient(135deg,var(--red),#f97316);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;margin-bottom:20px;
+}
+.rc-h{font-family:var(--hh);font-weight:800;font-size:20px;color:#fff;margin-bottom:8px}
+.rc-sub{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:24px}
+.rc-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;
+}
+.rcs{
+  background:rgba(255,255,255,.05);border-radius:12px;
+  padding:12px;border:1px solid rgba(255,255,255,.06);
+}
+.rcs-v{font-family:var(--hh);font-weight:800;font-size:18px;color:var(--red)}
+.rcs-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+.rc-btn{
+  width:100%;padding:14px;border-radius:14px;
+  background:var(--red);color:#fff;font-size:14px;font-weight:700;
+  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  gap:9px;transition:all .22s;
+}
+.rc-btn:hover{background:var(--red2);transform:translateY(-2px)}
+.rc-btn2{
+  width:100%;padding:11px;border-radius:14px;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);
+  font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.1);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  gap:8px;transition:all .22s;margin-top:10px;
+}
+.rc-btn2:hover{background:rgba(255,255,255,.1);color:#fff}
+
+/* ─────────────── SKILLS ─────────────── */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sk-card{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:20px;padding:26px;transition:all .25s;
+  position:relative;overflow:hidden;
+}
+.sk-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;border-radius:20px 20px 0 0;
+}
+.sk-card:nth-child(1)::before{background:var(--red)}
+.sk-card:nth-child(2)::before{background:#3d8ef8}
+.sk-card:nth-child(3)::before{background:#1ec97e}
+.sk-card:nth-child(4)::before{background:#9b5de5}
+.sk-card:nth-child(5)::before{background:#f4c430}
+.sk-card:nth-child(6)::before{background:#f97316}
+.sk-card:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:rgba(226,55,68,.2)}
+.sk-emoji{font-size:28px;margin-bottom:12px}
+.sk-title{font-family:var(--hh);font-weight:700;font-size:15px;margin-bottom:8px}
+.sk-desc{font-size:12.5px;color:var(--mist);line-height:1.65;margin-bottom:14px}
+.sk-pills{display:flex;flex-wrap:wrap;gap:6px}
+.sp{padding:4px 11px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(12,12,14,.05);color:var(--slate)}
+
+/* ─────────────── PROJECTS ─────────────── */
+/* Featured */
+.feat{
+  background:linear-gradient(145deg,#130305,#200609,#130305);
+  border-radius:26px;padding:52px;
+  border:1px solid rgba(226,55,68,.18);
+  position:relative;overflow:hidden;margin-bottom:24px;
+}
+.feat::before{
+  content:'';position:absolute;right:-100px;top:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(226,55,68,.16) 0%,transparent 65%);
+}
+.feat::after{
+  content:'';position:absolute;left:-60px;bottom:-60px;
+  width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(61,142,248,.06) 0%,transparent 65%);
+}
+.feat-inner{display:grid;grid-template-columns:1fr 300px;gap:56px;position:relative;z-index:1;align-items:center}
+.feat-eye{font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:rgba(226,55,68,.7);margin-bottom:10px;display:block}
+.feat-h{
+  font-family:var(--hh);font-weight:900;
+  font-size:clamp(28px,3vw,42px);color:#fff;
+  line-height:1.1;margin-bottom:14px;
+}
+.feat-h span{color:var(--red)}
+.feat-desc{font-size:13.5px;color:rgba(255,255,255,.42);line-height:1.7;margin-bottom:26px}
+.feat-kpis{display:flex;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.fk{
+  background:rgba(255,255,255,.05);border-radius:14px;
+  padding:14px 18px;border:1px solid rgba(255,255,255,.07);min-width:90px;
+}
+.fk-v{font-family:var(--hh);font-weight:900;font-size:22px;color:var(--red)}
+.fk-l{font-size:10px;color:rgba(255,255,255,.38);margin-top:2px}
+.feat-btns{display:flex;gap:11px;flex-wrap:wrap}
+.fbtn{
+  padding:11px 24px;border-radius:22px;font-size:13px;font-weight:700;
+  display:flex;align-items:center;gap:6px;transition:all .22s;border:2px solid;cursor:pointer;
+}
+.fbtn.p{background:var(--red);border-color:var(--red);color:#fff}
+.fbtn.p:hover{background:var(--red2);border-color:var(--red2);transform:translateY(-2px)}
+.fbtn.o{background:transparent;border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.65)}
+.fbtn.o:hover{border-color:rgba(255,255,255,.4);color:#fff}
+/* Mock screen */
+.feat-mock{
+  background:rgba(255,255,255,.04);border-radius:18px;
+  padding:14px;border:1px solid rgba(255,255,255,.07);
+}
+.mock-inner{
+  background:#0a0a0c;border-radius:12px;overflow:hidden;
+}
+.mock-bar{
+  background:#141416;padding:8px 12px;
+  display:flex;align-items:center;gap:5px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.mk{width:7px;height:7px;border-radius:50%}
+.mock-body{padding:12px;display:flex;flex-direction:column;gap:8px}
+.mock-title{height:10px;width:55%;background:rgba(226,55,68,.3);border-radius:3px}
+.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.mk-kpi{height:44px;border-radius:7px;border-top:2px solid}
+.mock-chart{
+  display:flex;align-items:flex-end;gap:3px;
+  height:52px;background:rgba(255,255,255,.03);
+  border-radius:7px;padding:8px;
+}
+.mc-bar{border-radius:2px;flex:1;transition:height .3s}
+
+/* Projects grid */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.proj{
+  background:var(--white);border:1px solid var(--line);
+  border-radius:20px;overflow:hidden;
+  transition:all .28s;cursor:pointer;display:flex;flex-direction:column;
+}
+.proj:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:rgba(226,55,68,.25)}
+.proj-thumb{
+  height:190px;display:flex;align-items:center;justify-content:center;
+  font-size:62px;position:relative;overflow:hidden;
+}
+.proj-label{
+  position:absolute;top:12px;left:12px;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
+  color:#fff;font-size:10px;font-weight:700;padding:4px 11px;border-radius:16px;
+}
+.proj-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.proj-h{font-family:var(--hh);font-weight:800;font-size:16px;margin-bottom:7px}
+.proj-d{font-size:13px;color:var(--mist);line-height:1.65;flex:1}
+.proj-ft{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+}
+.proj-chips{display:flex;gap:5px;flex-wrap:wrap}
+.pc2{padding:3px 9px;border-radius:12px;font-size:10px;font-weight:700;background:var(--red-ghost);color:var(--red)}
+.proj-arrow{
+  width:32px;height:32px;border-radius:50%;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:all .22s;color:var(--paper);
+}
+.proj:hover .proj-arrow{background:var(--red);transform:rotate(45deg)}
+
+/* ─────────────── EXPERIENCE ─────────────── */
+.exp-list{display:flex;flex-direction:column}
+.exp-item{
+  display:grid;grid-template-columns:180px 1fr;
+  gap:40px;padding:40px 0;border-bottom:1px solid var(--line);
+  position:relative;
+}
+.exp-item::before{
+  content:'';position:absolute;
+  left:176px;top:54px;
+  width:9px;height:9px;border-radius:50%;background:var(--red);
+  box-shadow:0 0 0 3px var(--paper),0 0 0 5px rgba(226,55,68,.25);
+}
+.exp-yr{font-size:12px;font-weight:700;color:var(--mist);text-transform:uppercase;letter-spacing:.8px;padding-top:4px}
+.exp-role{font-family:var(--hh);font-weight:800;font-size:20px;margin-bottom:3px}
+.exp-co{font-size:13px;font-weight:600;color:var(--red);margin-bottom:14px}
+.exp-d{font-size:13.5px;color:var(--mist);line-height:1.75}
+.exp-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.etag{padding:4px 12px;border-radius:18px;font-size:11px;font-weight:600;background:var(--paper);border:1px solid var(--line);color:var(--slate)}
+
+/* ─────────────── EDUCATION ─────────────── */
+.edu-card{
+  background:var(--ink);border-radius:26px;padding:50px;
+  display:grid;grid-template-columns:1fr 140px;gap:48px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.edu-card::before{
+  content:'';position:absolute;right:-80px;top:-80px;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(226,55,68,.16) 0%,transparent 65%);
+}
+.edu-card::after{
+  content:'';position:absolute;left:-50px;bottom:-50px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(61,142,248,.07) 0%,transparent 65%);
+}
+.edu-inner{position:relative;z-index:1}
+.edu-tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(226,55,68,.7);margin-bottom:12px;display:block}
+.edu-h{
+  font-family:var(--hh);font-weight:900;
+  font-size:clamp(22px,2.5vw,34px);color:#fff;
+  line-height:1.15;margin-bottom:8px;
+}
+.edu-h em{font-style:normal;color:var(--red)}
+.edu-uni{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:22px}
+.edu-badges{display:flex;gap:10px;flex-wrap:wrap}
+.ebadge{
+  padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;
+  background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.08);
+}
+.ebadge.hot{background:rgba(226,55,68,.18);border-color:rgba(226,55,68,.3);color:var(--red)}
+/* GPA ring */
+.gpa-wrap{text-align:center;position:relative;z-index:1}
+.gpa-ring{position:relative;width:120px;height:120px;margin:0 auto 10px}
+.gpa-ring svg{transform:rotate(-90deg)}
+.gpa-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gpa-n{font-family:var(--hh);font-weight:900;font-size:26px;color:#fff}
+.gpa-s{font-size:10px;color:rgba(255,255,255,.38);margin-top:1px}
+.gpa-lbl{font-size:11px;color:rgba(255,255,255,.42)}
+
+/* ─────────────── CONTACT ─────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cc{
+  background:var(--white);border:1.5px solid var(--line);
+  border-radius:18px;padding:26px;
+  display:flex;align-items:center;gap:16px;
+  transition:all .22s;cursor:pointer;
+}
+.cc:hover{border-color:var(--red);transform:translateX(5px);box-shadow:0 8px 28px rgba(226,55,68,.08)}
+.cc-ico{
+  width:48px;height:48px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.cc-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--mist);margin-bottom:4px}
+.cc-val{font-family:var(--hh);font-weight:700;font-size:13px;word-break:break-all}
+.cc:last-child{grid-column:1/-1}
+
+/* ─────────────── FOOTER ─────────────── */
+footer{
+  background:var(--ink);padding:36px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12.5px;color:rgba(255,255,255,.35);
+  flex-wrap:wrap;gap:12px;
+}
+.ft-brand{
+  font-family:var(--hh);font-weight:800;font-size:17px;
+  color:var(--paper);display:flex;align-items:center;gap:6px;
+}
+.ft-brand em{font-style:normal;color:var(--red)}
+
+/* ─────────────── SCROLL REVEAL ─────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.revealed{opacity:1;transform:translateY(0)}
+
+/* ─────────────── RESPONSIVE ─────────────── */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;padding:90px 24px 40px;gap:40px}
+  .photo-col{display:none}
+  .stats-band{grid-template-columns:repeat(2,1fr);padding:36px 24px;gap:24px}
+  .sb-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:16px 0}
+  .sb-item:last-child,.sb-item:nth-last-child(2){border-bottom:none}
+  .sec{padding:60px 24px}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-inner{grid-template-columns:1fr}
+  .feat-mock{display:none}
+  .proj-grid{grid-template-columns:1fr}
+  .profile-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .edu-card{grid-template-columns:1fr}
+  hr.div{margin:0 24px}
+  nav{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <div class="nav-brand">
+    <div class="pulse"></div>
+    G. Saisagar
+  </div>
+  <div class="nav-links">
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-hire" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    Hire Me
+  </button>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section>
+<div class="hero">
+  <!-- LEFT CONTENT -->
+  <div>
+    <div class="hero-eyebrow">
+      <span>●</span>&nbsp;Available for Full-Time Roles
+    </div>
+    <h1 class="hero-h1">
+      G. Saisagar<br>
+      <span class="accent">Data Analyst</span><br>
+      &amp; ML Engineer
+    </h1>
+    <p class="hero-sub">
+      B.Tech CSBS graduate from VIT AP University (2025) with hands-on expertise in
+      SQL, Python, Power BI and Machine Learning. I turn raw data into business intelligence
+      that drives real decisions.
+    </p>
+
+    <!-- Contact Meta -->
+    <div class="hero-meta">
+      <div class="hm-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <strong>Bengaluru, India</strong> — Open to Remote &amp; Hybrid
+      </div>
+      <div class="hm-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.38 19a19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <strong>+91 9100606922</strong>
+      </div>
+      <div class="hm-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <strong>saisagar200123@gmail.com</strong>
+      </div>
+      <div class="hm-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com/in/sai-sagar-6824a2238" target="_blank" style="color:var(--red);font-weight:600">linkedin.com/in/sai-sagar-6824a2238</a>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="hero-tags">
+      <span class="htag">📊 Power BI</span>
+      <span class="htag">🐍 Python</span>
+      <span class="htag">🗄️ SQL</span>
+      <span class="htag">🤖 Machine Learning</span>
+      <span class="htag">📉 EDA</span>
+      <span class="htag">📋 Excel</span>
+      <span class="htag">📌 R &amp; Weka</span>
+      <span class="htag">📈 Dashboards</span>
+    </div>
+
+    <!-- Buttons -->
+    <div class="hero-btns">
+      <a href="#projects" class="btn-red">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        View Projects
+      </a>
+      <button class="btn-down" id="resumeHeroBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </button>
+      <a href="#contact" class="btn-out">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Me
+      </a>
+    </div>
+  </div>
+
+  <!-- PHOTO COLUMN -->
+  <div class="photo-col">
+    <div style="position:relative;padding:20px 20px 40px">
+      <!-- Availability -->
+      <div class="fb3">
+        <div class="fb3-dot"></div>
+        <span>Open to Work 🚀</span>
+      </div>
+      <!-- Photo -->
+      <div class="photo-frame">
+        <img src="data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" alt="G. Saisagar — Data Analyst">
+      </div>
+      <!-- CGPA badge -->
+      <div class="fb1">
+        <div class="fb1-icon">🎓</div>
+        <div>
+          <div class="fv">8.04 CGPA</div>
+          <div class="fl">VIT AP University · 2025</div>
+        </div>
+      </div>
+      <!-- Top performer -->
+      <div class="fb2">
+        <div class="fb2-t">Data Analyst ⚡</div>
+        <div class="fb2-s">★ ★ ★ ★ ★</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="sb-item">
+    <div class="sb-v">88%</div>
+    <div class="sb-l">ML Model Accuracy (SLR)</div>
+  </div>
+  <div class="sb-item">
+    <div class="sb-v">8.04</div>
+    <div class="sb-l">CGPA · VIT AP University</div>
+  </div>
+  <div class="sb-item">
+    <div class="sb-v">3+</div>
+    <div class="sb-l">Projects Delivered</div>
+  </div>
+  <div class="sb-item">
+    <div class="sb-v">2025</div>
+    <div class="sb-l">B.Tech Batch · CSBS</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PROFILE & RESUME SECTION
+══════════════════════════════════════ -->
+<hr class="div" id="profile">
+<div class="sec" style="padding-top:80px">
+  <span class="sec-eye">Who I Am</span>
+  <h2 class="sec-h">My <em>Profile</em> &amp; Resume</h2>
+
+  <div class="profile-grid">
+    <!-- PROFILE CARD -->
+    <div class="profile-card reveal">
+      <!-- Mini photo + name header -->
+      <div class="pc-top">
+        <div class="pc-photo">
+          <img src="data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" alt="G. Saisagar">
+        </div>
+        <div>
+          <div class="pc-name">G. Saisagar</div>
+          <div class="pc-role">Data Analyst · ML Engineer</div>
+          <div class="pc-loc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bengaluru, India
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary from resume -->
+      <div class="pc-summary">
+        Data analyst with hands-on experience using <strong>SQL, Python, and Power BI</strong> to
+        clean, analyze, and visualize datasets. Proven ability to translate data into insights
+        that support business decisions. Strong problem-solving, communication, and teamwork
+        skills with growing interest in <strong>AI-driven analytics</strong>.
+      </div>
+
+      <!-- Contact details -->
+      <div class="pc-details">
+        <div class="pc-row">
+          <div class="pc-icon">📧</div>
+          <div><a href="mailto:saisagar200123@gmail.com">saisagar200123@gmail.com</a></div>
+        </div>
+        <div class="pc-row">
+          <div class="pc-icon">📱</div>
+          <div>+91 9100606922</div>
+        </div>
+        <div class="pc-row">
+          <div class="pc-icon">💼</div>
+          <div><a href="https://linkedin.com/in/sai-sagar-6824a2238" target="_blank">linkedin.com/in/sai-sagar-6824a2238</a></div>
+        </div>
+        <div class="pc-row">
+          <div class="pc-icon">📍</div>
+          <div>Bengaluru, India — Open to Remote &amp; Hybrid</div>
+        </div>
+        <div class="pc-row">
+          <div class="pc-icon">🎓</div>
+          <div>B.Tech CSBS · VIT AP University · 2025 · <strong>8.04 CGPA</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUME DOWNLOAD CARD -->
+    <div class="resume-card reveal">
+      <div class="rc-icon">📄</div>
+      <div class="rc-h">My Resume</div>
+      <div class="rc-sub">
+        Full resume with all projects, experience, skills,
+        and education — ready to download as DOCX.
+      </div>
+      <div class="rc-stats">
+        <div class="rcs"><div class="rcs-v">3+</div><div class="rcs-l">Projects</div></div>
+        <div class="rcs"><div class="rcs-v">8.04</div><div class="rcs-l">CGPA</div></div>
+        <div class="rcs"><div class="rcs-v">6+</div><div class="rcs-l">Tools</div></div>
+        <div class="rcs"><div class="rcs-v">2025</div><div class="rcs-l">Graduate</div></div>
+      </div>
+      <button class="rc-btn" id="dlResume">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download Resume (.docx)
+      </button>
+      <button class="rc-btn2" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Get In Touch Instead
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SKILLS
+══════════════════════════════════════ -->
+<hr class="div" id="skills">
+<div class="sec" style="padding-top:80px">
+  <span class="sec-eye">Technical Expertise</span>
+  <h2 class="sec-h">My <em>Skills</em> &amp; Tools</h2>
+  <div class="skills-grid">
+    <div class="sk-card reveal">
+      <div class="sk-emoji">🗄️</div>
+      <div class="sk-title">Data Querying</div>
+      <div class="sk-desc">Complex queries, joins, aggregations, subqueries, and data extraction from relational databases.</div>
+      <div class="sk-pills"><span class="sp">SQL</span><span class="sp">MySQL</span><span class="sp">PostgreSQL</span></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-emoji">🐍</div>
+      <div class="sk-title">Python & Data Science</div>
+      <div class="sk-desc">Data cleaning, EDA, machine learning pipelines, automation scripts, and visualization.</div>
+      <div class="sk-pills"><span class="sp">Pandas</span><span class="sp">NumPy</span><span class="sp">Scikit-learn</span><span class="sp">Matplotlib</span></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-emoji">📊</div>
+      <div class="sk-title">BI & Visualization</div>
+      <div class="sk-desc">Executive dashboards, KPI tracking, drill-through reports, bookmarks, and DAX formulas.</div>
+      <div class="sk-pills"><span class="sp">Power BI</span><span class="sp">Excel</span><span class="sp">DAX</span></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-emoji">🤖</div>
+      <div class="sk-title">Machine Learning</div>
+      <div class="sk-desc">Classification, regression, model evaluation, feature engineering using multiple frameworks.</div>
+      <div class="sk-pills"><span class="sp">Scikit-learn</span><span class="sp">Weka</span><span class="sp">R</span><span class="sp">Model Eval</span></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-emoji">📉</div>
+      <div class="sk-title">Analytics & Reporting</div>
+      <div class="sk-desc">EDA, data storytelling, KPI dashboards, business analysis, and actionable insight reporting.</div>
+      <div class="sk-pills"><span class="sp">EDA</span><span class="sp">KPIs</span><span class="sp">Dashboards</span><span class="sp">Reporting</span></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-emoji">🤝</div>
+      <div class="sk-title">Soft Skills</div>
+      <div class="sk-desc">Communication, problem-solving, team collaboration, and stakeholder coordination.</div>
+      <div class="sk-pills"><span class="sp">Communication</span><span class="sp">Leadership</span><span class="sp">Teamwork</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+<hr class="div" id="projects">
+<div class="sec" style="padding-top:80px">
+  <span class="sec-eye">Portfolio</span>
+  <h2 class="sec-h">My <em>Projects</em></h2>
+
+  <!-- FEATURED: ZOMATO -->
+  <div class="feat reveal">
+    <div class="feat-inner">
+      <div>
+        <span class="feat-eye">⭐ Featured Project — Power BI / HTML Dashboard</span>
+        <h3 class="feat-h">Zomato Analytics<br><span>Executive Dashboard</span></h3>
+        <p class="feat-desc">
+          Full-stack Power BI-style dashboard built from 4 real CSV files — 300 orders, 10 restaurants, 4 Indian cities.
+          Features 6 pages, drill-through panels, food image gallery, dark/light theme, order heatmap,
+          animated KPIs, sortable tables, and CSV export. Deployed live on GitHub Pages.
+        </p>
+        <div class="feat-kpis">
+          <div class="fk"><div class="fk-v">₹1.6L</div><div class="fk-l">Revenue Tracked</div></div>
+          <div class="fk"><div class="fk-v">300</div><div class="fk-l">Orders Analysed</div></div>
+          <div class="fk"><div class="fk-v">12+</div><div class="fk-l">Chart Types</div></div>
+          <div class="fk"><div class="fk-v">6</div><div class="fk-l">Dashboard Pages</div></div>
+        </div>
+        <div class="feat-btns">
+          <a href="Zomato_Pro_Dashboard_v3.html" target="_blank" class="fbtn p">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Dashboard
+          </a>
+          <a href="https://github.com/YOUR-USERNAME/zomato-dashboard" target="_blank" class="fbtn o">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+      <!-- Mock dashboard preview -->
+      <div class="feat-mock">
+        <div class="mock-inner">
+          <div class="mock-bar">
+            <div class="mk" style="background:#E23744"></div>
+            <div class="mk" style="background:#f4c430"></div>
+            <div class="mk" style="background:#1ec97e"></div>
+            <div style="flex:1;height:7px;background:rgba(255,255,255,.05);border-radius:3px;margin-left:8px"></div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-title"></div>
+            <div class="mock-kpis">
+              <div class="mk-kpi" style="background:rgba(226,55,68,.2);border-color:#E23744"></div>
+              <div class="mk-kpi" style="background:rgba(61,142,248,.15);border-color:#3d8ef8"></div>
+              <div class="mk-kpi" style="background:rgba(30,201,126,.15);border-color:#1ec97e"></div>
+              <div class="mk-kpi" style="background:rgba(155,93,229,.15);border-color:#9b5de5"></div>
+            </div>
+            <div class="mock-chart">
+              <div class="mc-bar" style="height:55%;background:rgba(226,55,68,.5)"></div>
+              <div class="mc-bar" style="height:80%;background:rgba(226,55,68,.7)"></div>
+              <div class="mc-bar" style="height:65%;background:rgba(226,55,68,.55)"></div>
+              <div class="mc-bar" style="height:90%;background:rgba(226,55,68,.85)"></div>
+              <div class="mc-bar" style="height:70%;background:rgba(226,55,68,.6)"></div>
+            </div>
+            <div style="height:8px;width:80%;background:rgba(255,255,255,.04);border-radius:3px"></div>
+            <div style="height:8px;width:60%;background:rgba(255,255,255,.04);border-radius:3px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OTHER PROJECTS -->
+  <div class="proj-grid">
+    <div class="proj reveal">
+      <div class="proj-thumb" style="background:linear-gradient(135deg,#0d1117,#1e2a3a)">
+        🤟
+        <span class="proj-label">Machine Learning</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-h">Sign Language Recognition (SLR)</div>
+        <div class="proj-d">
+          Built a machine learning model to recognize sign gestures and convert them to text and speech
+          to improve accessibility for hearing-impaired individuals. Collected and cleaned training data,
+          trained classification models, and improved accuracy from ~70% to <strong>88%</strong> through
+          feature engineering. Built a simple real-time demo interface.
+        </div>
+        <div class="proj-ft">
+          <div class="proj-chips"><span class="pc2">Python</span><span class="pc2">Scikit-learn</span><span class="pc2">88% Accuracy</span><span class="pc2">CV</span></div>
+          <div class="proj-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-thumb" style="background:linear-gradient(135deg,#0a1020,#1a2840)">
+        📡
+        <span class="proj-label">IoT · Hardware</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-h">Women Safety Device — VIT AP</div>
+        <div class="proj-d">
+          Developed an IoT-based safety device using <strong>GPS and GSM modules</strong> for
+          emergency SOS response. Added live location tracking and automatic alert notifications
+          that significantly reduced simulated emergency response time.
+          Led full hardware-software integration end-to-end.
+        </div>
+        <div class="proj-ft">
+          <div class="proj-chips"><span class="pc2">IoT</span><span class="pc2">GPS/GSM</span><span class="pc2">Arduino</span><span class="pc2">2023</span></div>
+          <div class="proj-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-thumb" style="background:linear-gradient(135deg,#0f1c10,#1a3020)">
+        💳
+        <span class="proj-label">Internship · Data Science</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-h">Loan Credit Score ML Project</div>
+        <div class="proj-d">
+          During internship at <strong>Intraintech</strong> — cleaned and prepared loan datasets,
+          created engineered features, and helped evaluate credit risk scoring models.
+          Reduced false positive predictions and documented results for team stakeholder
+          presentations. Used Python automation throughout.
+        </div>
+        <div class="proj-ft">
+          <div class="proj-chips"><span class="pc2">Python</span><span class="pc2">ML</span><span class="pc2">Feature Eng</span><span class="pc2">Internship</span></div>
+          <div class="proj-arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj reveal" onclick="window.open('Zomato_Pro_Dashboard_v3.html','_blank')" style="cursor:pointer">
+      <div class="proj-thumb" style="background:linear-gradient(135deg,#1a0508,#300a0d);position:relative">
+        🍕
+        <span class="proj-label">Power BI · HTML · GitHub Pages</span>
+        <span style="position:absolute;top:12px;right:12px;background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:16px;display:flex;align-items:center;gap:4px">
+          <span style="width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.5s infinite;display:inline-block"></span>
+          Live
+        </span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-h">Zomato Executive Dashboard</div>
+        <div class="proj-d">
+          Production-grade Power BI-style analytics dashboard with Zomato branding —
+          6 pages, drill-through, food image gallery, dark/light theme, heatmap,
+          sortable tables, CSV export, and live clock. Built from real CSV data and
+          deployed on GitHub Pages.
+        </div>
+        <div class="proj-ft">
+          <div class="proj-chips"><span class="pc2">HTML/CSS/JS</span><span class="pc2">Chart.js</span><span class="pc2">Power BI</span><span class="pc2">Live</span></div>
+          <div class="proj-arrow" style="background:var(--red)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════════ -->
+<hr class="div" id="experience">
+<div class="sec" style="padding-top:80px">
+  <span class="sec-eye">Work History</span>
+  <h2 class="sec-h">My <em>Experience</em></h2>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-yr">2023 · Remote</div>
+      <div>
+        <div class="exp-role">Data Science Intern</div>
+        <div class="exp-co">Intraintech — Remote</div>
+        <div class="exp-d">
+          Built and tested ML workflows for credit scoring datasets. Automated parts of the data cleaning
+          process using Python scripts, significantly reducing manual work. Created clear visualizations
+          and reports to explain model results to both technical team members and non-technical stakeholders.
+        </div>
+        <div class="exp-tags">
+          <span class="etag">Python</span>
+          <span class="etag">Machine Learning</span>
+          <span class="etag">Data Cleaning</span>
+          <span class="etag">Visualization</span>
+          <span class="etag">Reporting</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-yr">2021–2025</div>
+      <div>
+        <div class="exp-role">Design Team Coordinator</div>
+        <div class="exp-co">CSI Club · VIT AP University</div>
+        <div class="exp-d">
+          Led a design team for events, hackathons, and campus campaigns. Created posters, banners,
+          and social media creatives that improved event visibility and engagement across campus channels.
+          Coordinated with organizers to meet deadlines and maintain consistent branding standards.
+        </div>
+        <div class="exp-tags">
+          <span class="etag">Leadership</span>
+          <span class="etag">Graphic Design</span>
+          <span class="etag">Event Management</span>
+          <span class="etag">Branding</span>
+          <span class="etag">Team Coordination</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     EDUCATION
+══════════════════════════════════════ -->
+<hr class="div" id="education">
+<div class="sec" style="padding-top:80px">
+  <span class="sec-eye">Academic Background</span>
+  <h2 class="sec-h">My <em>Education</em></h2>
+  <div class="edu-card reveal">
+    <div class="edu-inner">
+      <span class="edu-tag">🎓 Bachelor of Technology · 2021 – 2025</span>
+      <div class="edu-h">
+        Computer Science &amp;<br>
+        <em>Business Systems</em>
+      </div>
+      <div class="edu-uni">VIT AP University · Amaravati, Andhra Pradesh</div>
+      <div class="edu-badges">
+        <span class="ebadge hot">⭐ CGPA: 8.04 / 10</span>
+        <span class="ebadge">📅 2021 – 2025</span>
+        <span class="ebadge">📍 Amaravati, AP</span>
+        <span class="ebadge">💻 CSBS Specialisation</span>
+      </div>
+    </div>
+    <!-- GPA Ring -->
+    <div class="gpa-wrap">
+      <div class="gpa-ring">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="9"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#E23744" stroke-width="9"
+            stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="60.2"
+            style="transition:stroke-dashoffset 1.5s ease"/>
+        </svg>
+        <div class="gpa-inner">
+          <div class="gpa-n">8.04</div>
+          <div class="gpa-s">/ 10.0</div>
+        </div>
+      </div>
+      <div class="gpa-lbl">Grade Point Average</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<hr class="div" id="contact">
+<div class="sec" style="padding-top:80px;padding-bottom:100px">
+  <span class="sec-eye">Get In Touch</span>
+  <h2 class="sec-h">Let's <em>Connect</em></h2>
+  <div class="contact-grid">
+    <a href="mailto:saisagar200123@gmail.com" class="cc reveal">
+      <div class="cc-ico" style="background:rgba(226,55,68,.1)">📧</div>
+      <div><div class="cc-lbl">Email</div><div class="cc-val">saisagar200123@gmail.com</div></div>
+    </a>
+    <a href="tel:+919100606922" class="cc reveal">
+      <div class="cc-ico" style="background:rgba(30,201,126,.1)">📱</div>
+      <div><div class="cc-lbl">Phone</div><div class="cc-val">+91 9100606922</div></div>
+    </a>
+    <a href="https://linkedin.com/in/sai-sagar-6824a2238" target="_blank" class="cc reveal">
+      <div class="cc-ico" style="background:rgba(61,142,248,.1)">💼</div>
+      <div><div class="cc-lbl">LinkedIn</div><div class="cc-val">linkedin.com/in/sai-sagar-6824a2238</div></div>
+    </a>
+    <a href="https://github.com/YOUR-USERNAME" target="_blank" class="cc reveal">
+      <div class="cc-ico" style="background:rgba(155,93,229,.1)">🐙</div>
+      <div><div class="cc-lbl">GitHub</div><div class="cc-val">github.com/YOUR-USERNAME</div></div>
+    </a>
+    <div class="cc reveal">
+      <div class="cc-ico" style="background:rgba(244,196,48,.1)">📍</div>
+      <div><div class="cc-lbl">Location</div><div class="cc-val">Bengaluru, India — Open to Remote &amp; Hybrid Roles</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="ft-brand">G. <em>Saisagar</em></div>
+  <div>Data Analyst · ML Engineer · VIT AP 2025</div>
+  <div>Built with ❤️ &amp; Claude AI</div>
+</footer>
+
+<!-- RESUME DOWNLOAD SCRIPT -->
+<script>
+const RESUME_B64 = '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';
+
+function downloadResume() {
+  const binary = atob(RESUME_B64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  const blob = new Blob([bytes], {type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'G_Saisagar_Resume.docx';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+document.getElementById('dlResume').addEventListener('click', downloadResume);
+document.getElementById('resumeHeroBtn').addEventListener('click', downloadResume);
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('revealed');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Active nav
+window.addEventListener('scroll', () => {
+  const sections = ['profile','skills','projects','experience','education','contact'];
+  const links = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 100) current = id;
+  });
+  links.forEach(l => {
+    l.style.color = l.getAttribute('href') === '#' + current ? 'var(--ink)' : '';
+    if (l.getAttribute('href') === '#' + current) {
+      l.style.color = 'var(--ink)';
+      l.style.fontWeight = '700';
+    } else {
+      l.style.color = '';
+      l.style.fontWeight = '';
+    }
+  });
+});
+</script>
+</body>
+</html>
